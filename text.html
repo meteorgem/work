@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+</head>
+
+<body>
+    <main class="waitsforhome" id="waitsforhomeApp" >
+            <div class="sidebarExsample" >
+                <ul>
+                    <li>
+                        <button class="accordion" @click="toggle(0)">貓貓</button>
+                        <ol :class="olClass">
+                            <li><button @click="itemClick('棕色')">棕色</button></li>
+                            <li><button @click="itemClick('花色')">花色</button></li>
+                            <li><button @click="itemClick('黑色')">黑色</button></li>
+                            <li><button @click="itemClick('白色')">白色</button></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <button class="accordion" @click="toggle(1)">狗狗</button>
+                        <ol :class="olClass">
+                            <li><button @click="itemClick('小型犬')">小型犬</button></li>
+                            <li><button @click="itemClick('中型犬')">中型犬</button></li>
+                            <li><button @click="itemClick('大型犬')">大型犬</button></li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        <div>
+            <component is='CatAndDog'  :animal-type="animalType" :animals="animals" :current-page="currentPage" ></component>
+            
+            <div class="page-icon">
+                <ul class="pages">
+                    <li class="previous">
+                      <i class="fa-solid fa-circle-chevron-left" @click="left()"></i>
+                    </li>
+                    <!-- <li class="currentPage">1</li> -->
+                    <li v-for=" page in pages" @click="pagepet(page)" :class="{currentPage:currentPage === (page)}">{{page}}</li>
+                    <li class="next">
+                      <i class="fa-solid fa-circle-chevron-right" @click="right()"></i>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="text.js"></script>
+</body>
+
+</html>

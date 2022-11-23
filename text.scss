@@ -1,0 +1,283 @@
+.waitsforhome {
+    width: vw(1200);
+    margin: 0 auto;
+    @include m() {
+        width: rwd(394);
+    }
+    //上層按鈕
+    .sidebarExsample {
+        width: vw(290);
+        margin-bottom: vw(40);
+        z-index: 20;
+        font-weight: $bold;
+        button {
+            font-weight: $bold;
+            width: vw(290);
+            // height: vw(60);
+            text-align: start;
+            font-size: $h4;
+            padding: vw(12) vw(32);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            @include m() {
+                width: rwd(120);
+                font-size: rwd(24);
+                height: rwd(50);
+            }
+
+            &::after {
+                position: absolute;
+                font-family: FontAwesome;
+                content: '\f105';
+                font-size: $h4;
+                right: vw(32);
+                top: 0.641667vw;
+                transition: 0.3s ease;
+                z-index: 20;
+                @include m() {
+                    font-size: rwd(24);
+                    top: 10px;
+                    right: 10px;
+                }
+            }
+        }
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            box-shadow: $shadow;
+            border-radius: vw(20);
+            z-index: 20;
+            li button {
+                z-index: 20;
+                background-color: #fff;
+                color: $primaryDark;
+                margin-right: vw(30);
+
+                &:hover {
+                    background-color: $primaryDark;
+                    color: #fff;
+                    z-index: 20;
+
+                }
+            }
+            li button.turnRight::after {
+                transform: rotate(90deg);
+                z-index: 20;
+            }
+            li .show {
+                visibility: visible;
+                opacity: 1;
+                transition: visibility 0s linear 0s, opacity 1100ms;
+                z-index: 20;
+
+            }
+
+            li .hide {
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+                transition: height 2s ease;
+                z-index: 20;
+            }
+            li ol li button {
+                background-color: #EBEBEB;
+                color: $gray600;
+                z-index: 20;
+
+                &:hover {
+                    color: $gray600;
+                    background-color: darken(#EBEBEB, 10);
+                    z-index: 20;
+                }
+                @include m() {
+                    // margin: rwd(5) 0;
+                    height: rwd(50);
+
+                }
+            }
+        }
+        ol {
+            position: absolute;
+        }
+        ol,
+        ul {
+            padding-left: 0;
+        }
+        ul > li:first-child > button {
+            border-radius: vw(20) vw(20) vw(20) vw(20);
+            &:hover {
+                border-radius: vw(20) vw(20) 0 0;
+            }
+        }
+        ul > li:last-child > button {
+            border-radius: vw(20) vw(20) vw(20) vw(20);
+            &:hover {
+                border-radius: vw(20) vw(20) 0 0;
+            }
+        }
+
+        ol > li:last-child > button {
+            border-radius: 0 0 vw(20) vw(20);
+        }
+    }
+
+    //主頁中間
+    ol, ul{
+      padding-left: 0rem;
+      @include m(){
+        padding-left: 0rem;
+      }
+    }
+    a{
+        text-decoration: none;
+    }
+    .waitsforhome-li {
+
+        background-color: #fff;
+        border-radius: $r25;
+        margin-bottom: vw(80);
+        box-shadow: $shadow;
+        transition: all 0.6s cubic-bezier(.15, .62, .43, .8);
+
+        img {
+            transform: scale(1);
+            transition: transform 2s ease 0s;
+        }
+        &:hover img {
+            transform: scale(1.2);
+        }
+        @include m() {
+            box-shadow: none;
+        }
+
+        &:hover {
+          box-shadow: 0 0 vw(20) vw(20) rgba(0, 0, 0, 0.1);
+          transform: translate(5px, 5px);
+      }
+    }
+   
+
+    .home-1 {
+        display: flex;
+        width: vw(1073);
+        margin: 0 auto;
+        box-sizing: border-box;
+        font-size: 0;
+        padding: vw(40) 0;
+        @include m() {
+            width: rwd(350);
+        }
+
+    }
+    img {
+        width: 100%;
+    }
+
+    .dogpp {
+        margin-right: vw(48);
+        flex: 1;
+        width: vw(141);
+        overflow: hidden;
+        border-radius: 10px;
+
+        img {
+            border-radius: 10px;
+            transform: scale(1);
+            transition: transform 2s ease 0s;
+        }
+        &:hover img {
+            transform: scale(1.2);
+        }
+
+        @include m() {
+            img {
+                width: vw(425);
+            }
+        }
+    }
+
+    .dogtt {
+        // width: vw(732);
+        flex: 3;
+        height: 100%;
+    }
+    h1 {
+        color: $secondaryA11y;
+        font-size: $h2;
+        font-weight: $bold;
+        padding-top: vw(20);
+        @include m() {
+            padding: vw(40);
+            text-align: center;
+            font-size: vw(120);
+        }
+    }
+    h4 {
+        color: $secondaryA11y;
+        font-size: $h5;
+        font-weight: $bold;
+        padding-bottom: vw(8);
+        @include m() {
+            text-align: center;
+            letter-spacing: 1px;
+            font-size: vw(64);
+
+        }
+    }
+    p {
+        font-size: font-size(13);
+        text-indent: vw(-101);
+        margin-left: vw(105);
+        color: black;
+        @include m() {
+            display: none;
+
+        }
+    }
+
+    ////////以下為頁碼 需修改 目前是意圖
+    .page-icon {
+        ul.pages {
+            display: flex;
+            justify-content: center;
+            @include m() {
+                margin: rwd(32) 0;
+            }
+            li {
+                text-align: center;
+                line-height: vw(40);
+                font-size: $p;
+                color: $primaryA11y;
+                width: vw(40);
+                height: vw(40);
+                margin: 0 vw(8);
+                cursor: pointer;
+                
+                @include m() {
+                    line-height: rwd(32);
+                    width: rwd(32);
+                    height: rwd(32);
+                    margin: 0 rwd(4);
+                    font-size: rwd(18);
+                }
+            }
+            .li.currentPage{
+                color: $secondaryLight;
+                background-color: $primaryA11y;
+                border-radius: 50%;
+                
+            }
+            li.next,
+            li.previous {
+                font-size: vw(18);
+                color: $primaryDark;
+                background-color: transparent;
+                @include m() {
+                    font-size: rwd(18);
+                }
+            }
+        }
+    }
+}
